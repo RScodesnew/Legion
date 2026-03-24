@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naruto Fan Page</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: white;
+    margin: 0;
+}
+
+nav {
+    background: linear-gradient(90deg, orange, red);
+    padding: 15px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* CARDS */
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* PAGES */
+.page { display: none; }
+.activePage { display: block; }
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    background: #020617;
+    padding: 20px;
+    transition: 0.3s;
+    z-index: 1001;
+}
+
+.sidebar h2 { color: orange; }
+.sidebar h3 { color: #aaa; margin-top: 15px; }
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.25s ease;
+}
+
+.sidebar a:hover {
+    background: #1e293b;
+    color: orange;
+    transform: translateX(8px) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,165,0,0.25);
+}
+
+.sidebar a:active {
+    transform: scale(0.95);
+}
+
+.divider {
+    height: 1px;
+    background: #334155;
+    margin: 15px 0;
+}
+
+/* OVERLAY */
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 1000;
+}
+
+/* BUTTON */
+.menuBtn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: orange;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* 🔥 BETTER BUTTON */
+button {
+    background: linear-gradient(45deg, orange, red);
+    border: none;
+    padding: 12px 18px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(255,100,0,0.5);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#quoteBox {
+    margin-top: 10px;
+    color: #facc15;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+    <h2>🍥 Menu</h2>
+
+    <a onclick="showPage('home')">🏠 Home</a>
+
+    <div class="divider"></div>
+
+    <h3>Characters</h3>
+    <a onclick="showPage('naruto')">Naruto</a>
+    <a onclick="showPage('sasuke')">Sasuke</a>
+    <a onclick="showPage('sakura')">Sakura</a>
+    <a onclick="showPage('kakashi')">Kakashi</a>
+
+    <div class="divider"></div>
+
+    <a onclick="showPage('battles')">🔥 Battles</a>
+    <a onclick="showPage('jutsu')">⚡ Jutsu</a>
+</div>
+
+<div id="overlay" onclick="closeMenu()"></div>
+<button class="menuBtn" onclick="toggleMenu()">☰</button>
+
+<nav>🍥 Naruto Fan Page</nav>
+
+<div class="container">
+
+<!-- HOME -->
+<div id="home" class="page activePage">
+<div class="card">
+<h2>About Naruto</h2>
+<p>Naruto Uzumaki is a ninja who dreams of becoming Hokage.</p>
+<img src="https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_Uzumaki.png">
+</div>
+
+<div class="card">
+<h2>Story Overview</h2>
+<p>From the Chunin Exams to the Great Ninja War.</p>
+</div>
+
+<div class="card">
+<h2>Main Characters</h2>
+<ul>
+<li>Naruto Uzumaki</li>
+<li>Sasuke Uchiha</li>
+<li>Sakura Haruno</li>
+<li>Kakashi Hatake</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🔥 Naruto Quotes</h2>
+<button onclick="showQuote()">Get Quote</button>
+<div id="quoteBox"></div>
+</div>
+</div>
+
+<!-- NARUTO -->
+ <div id="naruto" class="page">
+<div class="card">
+<h3>Background</h3>
+<p>
+Naruto Uzumaki was born as the son of Minato Namikaze (Fourth Hokage) and Kushina Uzumaki. 
+On the day of his birth, the Nine-Tailed Fox (Kurama) attacked the village, and Naruto became its host.
+Because of this, the villagers feared and avoided him, leaving him lonely during his childhood.
+</p>
+</div>
+
+<div class="card">
+<h3>Fighting Style</h3>
+<p>
+Naruto relies on unpredictability and creativity in battle. 
+He uses Shadow Clones not just for fighting, but for strategy, distractions, and even training. 
+Unlike most ninjas, Naruto often overwhelms enemies with sheer chakra volume and stamina.
+</p>
+</div>
+
+<div class="card">
+<h3>Major Power Ups</h3>
+<ul>
+<li>Sage Mode – enhanced senses and physical abilities</li>
+<li>Kurama Chakra Mode – massive speed and power boost</li>
+<li>Six Paths Sage Mode – god-level abilities granted by Hagoromo</li>
+<li>Baryon Mode – ultimate form with extreme cost</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Personality & Ideals</h3>
+<p>
+Naruto believes in never giving up and values bonds above everything else. 
+His greatest strength is his ability to understand others, even enemies, 
+which allows him to change people like Nagato and Obito.
+</p>
+</div>
+
+<div class="card">
+<h3>Legacy</h3>
+<p>
+Naruto eventually achieves his dream of becoming Hokage and brings peace to the ninja world. 
+He is known as a hero who united nations and ended cycles of hatred.
+</p>
+</div>
+
+<!-- SASUKE -->
+ <div id="sasuke" class="page">
+<div class="card">
+<h3>Background</h3>
+<p>
+Sasuke Uchiha is the last surviving member of the Uchiha clan after his brother Itachi 
+massacred their entire family. This traumatic event shaped Sasuke’s goal of revenge.
+</p>
+</div>
+
+<div class="card">
+<h3>Fighting Style</h3>
+<p>
+Sasuke fights with precision, speed, and intelligence. 
+He uses lightning-style attacks combined with Sharingan perception 
+to strike opponents at the perfect moment.
+</p>
+</div>
+
+<div class="card">
+<h3>Abilities</h3>
+<ul>
+<li>Sharingan – enhanced perception and genjutsu</li>
+<li>Mangekyo Sharingan – Amaterasu and Susanoo</li>
+<li>Rinnegan – teleportation and space-time control</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Internal Conflict</h3>
+<p>
+Sasuke struggles between hatred and truth. 
+After learning Itachi’s sacrifice, his perspective shifts, 
+leading him to challenge the entire system of the ninja world.
+</p>
+</div>
+
+<div class="card">
+<h3>Role in the End</h3>
+<p>
+After his final battle with Naruto, Sasuke accepts his past and chooses redemption, 
+becoming a protector who works from the shadows.
+</p>
+</div>
+
+<!-- SAKURA -->
+ <div id="sakura" class="page">
+<div class="card">
+<h3>Background</h3>
+<p>
+Sakura Haruno starts as a normal ninja with no special clan abilities. 
+However, her intelligence and chakra control set her apart early on.
+</p>
+</div>
+
+<div class="card">
+<h3>Training Under Tsunade</h3>
+<p>
+Sakura trains under Tsunade, one of the Legendary Sannin, 
+learning advanced medical ninjutsu and gaining immense physical strength.
+</p>
+</div>
+
+<div class="card">
+<h3>Abilities</h3>
+<ul>
+<li>Medical Ninjutsu – healing and surgery</li>
+<li>Super Strength – devastating punches</li>
+<li>Byakugou Seal – stored chakra for regeneration</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Battle Role</h3>
+<p>
+Sakura plays a crucial role in battles by supporting teammates, healing injuries, 
+and dealing massive damage when needed.
+</p>
+</div>
+
+<div class="card">
+<h3>Character Growth</h3>
+<p>
+She evolves from being dependent on others to becoming one of the strongest kunoichi, 
+standing alongside Naruto and Sasuke in the final war.
+</p>
+</div>
+
+<!-- KAKASHI -->
+ <div id="kakashi" class="page">
+<div class="card">
+<h3>Background</h3>
+<p>
+Kakashi Hatake, known as the Copy Ninja, is the son of Sakumo Hatake. 
+After losing many loved ones, he develops a calm and somewhat distant personality.
+</p>
+</div>
+
+<div class="card">
+<h3>Combat Intelligence</h3>
+<p>
+Kakashi is one of the smartest fighters in the series. 
+He analyzes opponents quickly and adapts mid-battle using strategy rather than brute force.
+</p>
+</div>
+
+<div class="card">
+<h3>Abilities</h3>
+<ul>
+<li>Sharingan – allows him to copy jutsu</li>
+<li>Lightning Blade – high-speed piercing attack</li>
+<li>Kamui – space-time ninjutsu</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Teaching Style</h3>
+<p>
+As Team 7’s leader, Kakashi focuses on teamwork and trust. 
+He teaches his students the importance of protecting comrades.
+</p>
+</div>
+
+<div class="card">
+<h3>Legacy</h3>
+<p>
+Kakashi later becomes Hokage and plays a major role in rebuilding the village after war, 
+showing both leadership and wisdom.
+</p>
+</div>
+
+<!-- BATTLES -->
+<div id="battles" class="page">
+<div class="card">
+<h2>Top Battles 🔥</h2>
+<ul>
+<li>Naruto vs Sasuke (Final Valley)</li>
+<li>Rock Lee vs Gaara</li>
+<li>Naruto vs Pain</li>
+<li>Jiraiya vs Pain</li>
+<li>Kakashi vs Obito</li>
+<li>Might Guy vs Madara</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Why These Battles Matter</h3>
+<p>
+These fights are not just about strength — they show emotions, growth,
+and major turning points in the story.
+</p>
+</div>
+
+<div class="card">
+<h3>Legendary Moments</h3>
+<p>
+Rock Lee removing his weights shocked everyone.  
+Naruto defeating Pain proved he became a true hero.  
+Guy opening the 8th gate = absolute madness 💀🔥
+</p>
+</div>
+</div>
+
+<!-- JUTSU -->
+<div id="jutsu" class="page">
+<div class="card">
+<h2>Famous Jutsu ⚡</h2>
+<ul>
+<li>Rasengan</li>
+<li>Chidori</li>
+<li>Amaterasu</li>
+<li>Shadow Clone</li>
+<li>Summoning Jutsu</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Types of Jutsu</h3>
+<ul>
+<li>Ninjutsu – Chakra-based attacks</li>
+<li>Genjutsu – Illusions</li>
+<li>Taijutsu – Hand-to-hand combat</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Special Powers</h3>
+<p>
+Some jutsu require special abilities like Sharingan or Rinnegan.
+These are rare and extremely powerful.
+</p>
+</div>
+
+<div class="card">
+<h3>Iconic Techniques</h3>
+<p>
+Rasengan = pure chakra control  
+Chidori = lightning speed attack  
+Amaterasu = black flames that never stop burning
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").style.left = "0px";
+    document.getElementById("overlay").style.display = "block";
+}
+
+function closeMenu() {
+    document.getElementById("sidebar").style.left = "-260px";
+    document.getElementById("overlay").style.display = "none";
+}
+
+document.getElementById("sidebar").addEventListener("click", e => e.stopPropagation());
+
+document.addEventListener("click", function(e) {
+    const sidebar = document.getElementById("sidebar");
+    const btn = document.querySelector(".menuBtn");
+
+    if (sidebar.style.left === "0px" && !btn.contains(e.target)) {
+        closeMenu();
+    }
+});
+
+function showPage(id) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("activePage"));
+    document.getElementById(id).classList.add("activePage");
+    closeMenu();
+}
+
+function showQuote() {
+    const quotes = [
+        "I never go back on my word.",
+        "Believe in yourself.",
+        "Pain teaches growth.",
+        "Failure makes you stronger.",
+        "Hard work beats talent.",
+        "shape your own destiny"
+    ];
+    document.getElementById("quoteBox").innerText =
+        quotes[Math.floor(Math.random() * quotes.length)];
+}
+</script>
+
+</body>
+</html>
